@@ -25,6 +25,24 @@ quicksort(a, start, pivot - 1);
 quicksort(a, pivot + 1, end);
 }
 
+void insertsort(int *a, int n){
+    int key = 0, temp = 0;
+	for (int i = 0; i < n - 1; i++)
+	{
+		key = i + 1;
+		temp = a[key];
+		for (int j = i + 1; j > 0; j--)
+		{
+			if (temp < a[j - 1])
+			{
+				a[j] = a[j - 1];
+				key = j - 1;
+			}
+		}
+		a[key] = temp;
+	}
+}
+
 int main() {
     int n, i;
     std::cout << "Enter the dimension of the array: ";
@@ -34,7 +52,7 @@ int main() {
     for (i = 0; i < n; i++) {
         std::cin >> a[i];
     }
-    quicksort(a, 0, n - 1);
+quicksort(a, 0, n - 1);
 for (int i = 0; i < n; i++) {
 cout << a[i] << " ";
 }
